@@ -1,11 +1,8 @@
-let random1 = Math.floor(Math.random() * 10) + 2;
-let random2 = Math.floor(Math.random() * 10) + 2;
+let random1, random2 = Math.floor(Math.random() * 10) + 2;
 let sum = random1 + random2;
-let winner = false;
-let inPlay = false;
-let message = "";
-const extraCards = [random1, random1, random1, random1, random1, random1, random1];
 let cards = [random1, random2];
+let winner, inPlay = false;
+let message = "";
 let count = 0;
 let displayArray = [];
 // get the element and store in a variable
@@ -45,7 +42,7 @@ function startGame() {
   }
   //change the text of the elements
   messageElement.textContent = message;
-  cardsElement.textContent = `Cards: ${firstCard} ${secondCard}`;
+  cardsElement.textContent = `Cards: ${random1} ${random2}`;
   sumElement.textContent = `Sum: ${sum}`;
   document.getElementById("btn-start").disabled = true;
 }
@@ -71,10 +68,11 @@ function checkScore() {
 }
 
 function newCard() {
+    let randomNumber = Math.floor(Math.random() * 10) + 2;
   if (inPlay && winner === false && sum < 21) {
     if (count <= 7) {
-      cards.push(extraCards[count]);
-      sum += extraCards[count];
+      cards.push(randomNumber);
+      sum += randomNumber;
       displayArray = cards.toString().replaceAll(',', ' ');
       cardsElement.textContent = `Cards: ${displayArray}`;
       sumElement.textContent = `Sum: ${sum}`;
