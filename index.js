@@ -1,11 +1,11 @@
-let firstCard = Math.floor(Math.random() * 11) + 1;
-let secondCard = Math.floor(Math.random() * 11) + 1;
-let sum = firstCard + secondCard;
+let random1 = Math.floor(Math.random() * 10) + 2;
+let random2 = Math.floor(Math.random() * 10) + 2;
+let sum = random1 + random2;
 let winner = false;
 let inPlay = false;
 let message = "";
-const extraCards = [firstCard, firstCard, firstCard, firstCard, firstCard, firstCard, firstCard];
-let cards = [firstCard, secondCard];
+const extraCards = [random1, random1, random1, random1, random1, random1, random1];
+let cards = [random1, random2];
 let count = 0;
 let displayArray = [];
 // get the element and store in a variable
@@ -82,5 +82,5 @@ function newCard() {
       checkScore();
     }
   }
-  
+
 }
