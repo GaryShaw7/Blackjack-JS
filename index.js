@@ -1,7 +1,9 @@
-let random1, random2 = Math.floor(Math.random() * 10) + 2;
+let random1 = Math.floor(Math.random() * 10) + 2;
+let random2 = Math.floor(Math.random() * 10) + 2;
 let sum = random1 + random2;
 let cards = [random1, random2];
-let winner, inPlay = false;
+let winner = false;
+let inPlay = false;
 let message = "";
 let count = 0;
 let displayArray = [];
