@@ -13,6 +13,9 @@ let displayArray = [];
 let messageElement = document.getElementById("message-element");
 let cardsElement = document.getElementById("cards-element");
 let sumElement = document.getElementById("sum-element");
+let modal = document.getElementById("myModal");
+let btn = document.getElementById("rules-btn");
+let span = document.getElementsByClassName("close")[0];
 
 function checkButton() {
   if (inPlay) {
@@ -88,7 +91,7 @@ function CheckSuits(latestCard) {
     let newRandomNumber = Math.floor(Math.random() * 10) + 2;
     // Check that the new number is not the same as the previous number
     while (newRandomNumber === latestCard) {
-        newRandomNumber = Math.floor(Math.random() * 10) + 2;
+      newRandomNumber = Math.floor(Math.random() * 10) + 2;
     }
     checkSuitsList.push(newRandomNumber);
     latestCard = newRandomNumber;
@@ -111,5 +114,21 @@ function newCard() {
       checkScore();
     }
   }
-  
 }
+
+// When the user clicks on the rules button, open the modal
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
