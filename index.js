@@ -16,6 +16,9 @@ let sumElement = document.getElementById("sum-element");
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("rules-btn");
 let span = document.getElementsByClassName("close")[0];
+let startBtn = document.getElementById("btn-start");
+let quitBtn = document.getElementById("btn-quit");
+let newCardBtn = document.getElementById("btn-new-card");
 
 function checkButton() {
   if (inPlay) {
@@ -34,7 +37,8 @@ function checkButton() {
 }
 checkButton();
 
-function startGame() {
+
+startBtn.addEventListener("click", function(){
   inPlay = true;
   checkButton();
 
@@ -52,14 +56,14 @@ function startGame() {
   cardsElement.textContent = `Cards: ${random1} ${random2}`;
   sumElement.textContent = `Sum: ${sum}`;
   document.getElementById("btn-start").disabled = true;
-}
+})
 
-function quitGame() {
+quitBtn.addEventListener("click", function(){
   message = "Goodbye";
   // Change the text of the elements
   messageElement.textContent = message;
   location.reload();
-}
+})
 
 function checkScore() {
   if (sum < 21) {
@@ -99,7 +103,7 @@ function CheckSuits(latestCard) {
   return latestCard;
 }
 
-function newCard() {
+newCardBtn.addEventListener("click", function(){
   let randomNumber = Math.floor(Math.random() * 10) + 2;
   randomNumber = CheckSuits(randomNumber);
 
@@ -114,7 +118,7 @@ function newCard() {
       checkScore();
     }
   }
-}
+})
 
 // When the user clicks on the rules button, open the modal
 btn.onclick = function () {
